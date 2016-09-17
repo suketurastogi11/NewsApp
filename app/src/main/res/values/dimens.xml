@@ -6,5 +6,6 @@
     <dimen name="no_data">15sp</dimen>
     <dimen name="section_name_size">25sp</dimen>
     <dimen name="web_title_size">20sp</dimen>
+    <dimen name="author_name_size">15sp</dimen>
 
 </resources>

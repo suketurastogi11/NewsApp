@@ -35,6 +35,9 @@ public class NewListAdapter  extends ArrayAdapter<NewsList> {
         String webTitleToShow = "Description : " + currentNews.getWebTitle() ;
         webTitle.setText(webTitleToShow);
 
+        TextView authorName = (TextView)listItemView.findViewById(R.id.author_name_list_item);
+        authorName.setText(currentNews.getAuthorName());
+
         return listItemView;
     }
 }

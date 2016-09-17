@@ -23,5 +23,13 @@
         tools:text="web_title"
         android:textColor="@android:color/black" />
 
+    <TextView
+        android:id="@+id/author_name_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/author_name_size"
+        tools:text="author name"
+        android:textColor="@android:color/black" />
+
 
 </LinearLayout>

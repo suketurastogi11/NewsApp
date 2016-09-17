@@ -5,12 +5,14 @@ public class NewsList {
     private String mSectionName;
     private String mWebTitle;
     private String mWebUrl;
+    private String mAuthorName;
 
-    public NewsList(String sectionName,String webTitle,String webUrl){
+    public NewsList(String sectionName,String webTitle,String webUrl,String authorName){
 
         mSectionName = sectionName;
         mWebTitle = webTitle;
         mWebUrl = webUrl;
+        mAuthorName = authorName;
 
     }
     public String getSectionName(){
@@ -23,5 +25,9 @@ public class NewsList {
 
     public String getWebUrl(){
         return mWebUrl;
+    }
+
+    public String getAuthorName(){
+        return  mAuthorName;
     }
 }

@@ -41,7 +41,7 @@ public class NewsListActivity extends AppCompatActivity {
     final ArrayList<NewsList> newsArrayList = new ArrayList<>();
 
     //Url to hit for Getting News.
-    String NewsUrl = "http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2016-01-01&api-key=test";
+    String NewsUrl = "http://content.guardianapis.com/search?q=pokemon&api-key=test&show-tags=contributor";
 
     //Initializing server results to null.
     String resultNewsListServer = null;
@@ -195,12 +195,22 @@ public class NewsListActivity extends AppCompatActivity {
                             String sectionNameInfo = currentItem.getString("sectionName");
                             String webTitleInfo = currentItem.getString("webTitle");
                             String webUrlInfo = currentItem.getString("webUrl");
+                            String authorNameInfo = null;
+
+                            JSONArray authorJSONArray = currentItem.getJSONArray("tags");
+
+                            for (int j = 0; j < authorJSONArray.length(); j++) {
+
+                                JSONObject currentAuthor = authorJSONArray.getJSONObject(j);
+                                authorNameInfo = currentAuthor.getString("webTitle");
+                            }
 
                             Log.e("sectionNameInfo", "" + sectionNameInfo);
                             Log.e("webTitleInfo", "" + webTitleInfo);
                             Log.e("webUrlInfo", "" + webUrlInfo);
+                            Log.e("authorNameInfo", "" + authorNameInfo);
 
-                            newsArrayList.add(new NewsList(sectionNameInfo, webTitleInfo, webUrlInfo));
+                            newsArrayList.add(new NewsList(sectionNameInfo, webTitleInfo, webUrlInfo, authorNameInfo));
 
                             newsList.setAdapter(newsListAdapter);
 
@@ -208,12 +218,11 @@ public class NewsListActivity extends AppCompatActivity {
                         }
                     }
 
-
                 } catch (JSONException e) {
                     // If an error is thrown when executing any of the above statements in the "try" block,
                     // catch the exception here, so the app doesn't crash. Print a log message
                     // with the message from the exception.
-                    Log.e("Exception : ", "Problem parsing the bookList JSON results", e);
+                    Log.e("Exception : ", "Problem parsing the newsList JSON results", e);
                 }
             }
         }
